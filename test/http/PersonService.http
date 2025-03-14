@@ -1,0 +1,97 @@
+@server = http://localhost:4004
+
+
+### Person
+# @name Person_GET
+GET {{server}}/odata/v4/person/Person
+
+
+
+### Person
+# @name Person_POST
+POST {{server}}/odata/v4/person/Person
+Content-Type: application/json
+
+{
+  "ID": 10595025,
+  "name": "name-Yash",
+  "gender": "gender-Male",
+  "country": "country-India",
+  "school": "school-SRM"
+}
+
+
+### Person
+# @name Person_PATCH
+PATCH {{server}}/odata/v4/person/Person/10595025
+Content-Type: application/json
+
+{
+  "ID": 10595025,
+  "name": "name-Yash",
+  "gender": "gender-Male",
+  "country": "country-India",
+  "school": "school-SRM"
+}
+
+
+### Person
+# @name Person_DELETE
+DELETE {{server}}/odata/v4/person/Person/10595025
+Content-Type: application/json
+
+
+### PersonEmbedding
+# @name PersonEmbedding_GET
+GET {{server}}/odata/v4/person/PersonEmbedding
+
+
+
+### PersonEmbedding
+# @name PersonEmbedding_POST
+POST {{server}}/odata/v4/person/PersonEmbedding
+Content-Type: application/json
+
+{
+  "ID": 0,
+  "person": {
+    "ID": 10595025
+  }
+}
+
+
+### PersonEmbedding
+# @name PersonEmbedding_PATCH
+PATCH {{server}}/odata/v4/person/PersonEmbedding/2970762
+Content-Type: application/json
+
+{
+  "ID": 0,
+  "person": {
+    "ID": 10595025
+  }
+}
+
+
+### PersonEmbedding
+# @name PersonEmbedding_DELETE
+DELETE {{server}}/odata/v4/person/PersonEmbedding/0
+Content-Type: application/json
+
+
+### initializeEmbeddings
+# @name initializeEmbeddings_POST
+POST {{server}}/odata/v4/person/initializeEmbeddings
+Content-Type: application/json
+
+{}
+
+
+### searchSimilar
+# @name searchSimilar_POST
+POST {{server}}/odata/v4/person/searchSimilar
+Content-Type: application/json
+
+{
+  "query": "Evelyn Kim Male Brazil MIT"
+}
